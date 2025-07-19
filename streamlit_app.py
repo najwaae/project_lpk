@@ -3,7 +3,9 @@ import random
 
 # ========== DATA PENGERTIAN ESTER MOON ==========
 pengertian_estermoon = [
-    {Ester Moon adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik. Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik. Selain materi praktikum, aplikasi web ini menyediakan fitur berupa kalkulator perhitungan konsentrasi dan normalitas larutan untuk standardisasi. Dengan adanya aplikasi web ini analis akan lebih mudah dalam mengakses bahan ajar praktikum, karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja.}
+    {
+        "deskripsi": "Ester Moon adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik. Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik. Selain materi praktikum, aplikasi web ini menyediakan fitur berupa kalkulator perhitungan konsentrasi dan normalitas larutan untuk standardisasi. Dengan adanya aplikasi web ini analis akan lebih mudah dalam mengakses bahan ajar praktikum, karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja."
+    }
 ]
 
 # ========== DATA PENGERTIAN GOLONGAN SENYAWA ==========
@@ -24,6 +26,15 @@ pengertian_senyawa = [
     {"Golongan": "Amina", "Pengertian": "Senyawa yang mengandung atom nitrogen dengan gugus alkil/aril."},
     {"Golongan": "Protein", "Pengertian": "Polimer asam amino dengan ikatan peptida. Fungsi: enzim, transport, struktural, dsb."},
     {"Golongan": "Lemak & Minyak", "Pengertian": "Lemak: padat pada suhu ruang (dari hewan). Minyak: cair pada suhu ruang (dari tumbuhan). Cadangan energi."},
+]
+
+# ========== FAKTA MENARIK ==========
+fakta_menarik = [
+    "🧴 Lemak tak jenuh bereaksi dengan larutan Baeyer.",
+    "🧪 Fenol memberikan warna ungu dengan FeCl₃.",
+    "⚗ Uji Lucas membedakan alkohol primer, sekunder, tersier.",
+    "💨 NaHCO₃ bereaksi dengan asam karboksilat membebaskan CO₂.",
+    "🔬 Uji Biuret positif jika ada ikatan peptida.",
 ]
 
 # ========== DATA UJI SENYAWA ==========
@@ -112,86 +123,7 @@ data_senyawa = [
     {"nama_jenis": "Lemak & Minyak (contoh: trigliserida)", "kelarutan": "Tidak larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": ">300 (dekomposisi)"},
 ]
 
-# ========== FAKTA MENARIK ==========
-fakta_menarik = [
-    "🧴 Lemak tak jenuh bereaksi dengan larutan Baeyer.",
-    "🧪 Fenol memberikan warna ungu dengan FeCl₃.",
-    "⚗ Uji Lucas membedakan alkohol primer, sekunder, tersier.",
-    "💨 NaHCO₃ bereaksi dengan asam karboksilat membebaskan CO₂.",
-    "🔬 Uji Biuret positif jika ada ikatan peptida.",
-]
-
-# ========== KONFIGURASI HALAMAN ==========
-# ========== KONFIGURASI HALAMAN ==========
-st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
-
-# ========== TAB-TAB ==========
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📘 Pengertian EsterMoon",
-    "📘 Pengertian Senyawa",
-    "🔬 Uji Senyawa",
-    "📊 Kelarutan, Kebasaan & Titik Didih",
-    "🧠 Quiz Golongan Senyawa"
-])
-
-# ========== TAB 1: ESTER MOON ==========
-with tab1:
-    st.header("Apa Itu Ester Moon?")
-    st.write("""
-        *Ester Moon* adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik.  
-        
-        Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik.  
-        Selain materi praktikum, aplikasi web ini menyediakan fitur berupa *kalkulator perhitungan konsentrasi dan normalitas larutan* untuk standardisasi.  
-        
-        Dengan adanya aplikasi web ini, analis akan lebih mudah dalam mengakses bahan ajar praktikum karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja.
-    """)
-    st.subheader("👩‍🔬 Kelompok 03:")
-    anggota = [
-        "Anita Tiara Angel",
-        "Dwita Widya Putri",
-        "Marsya Madina Munir",
-        "Najwa Ananda Effendy",
-        "Shella Rivana Auliya"
-    ]
-    for nama in anggota:
-        st.write(f"- {nama}")
-
-# ========== TAB 2: PENGERTIAN GOLONGAN SENYAWA ==========
-# Asumsikan variabel pengertian_senyawa sudah tersedia
-with tab2:
-    st.title("📘 Pengertian Golongan Senyawa Kimia")
-    st.markdown("Pilih golongan senyawa di bawah ini untuk melihat penjelasannya.")
-
-    golongan_list = [x["Golongan"] for x in pengertian_senyawa]
-    selected = st.selectbox("Pilih Golongan Senyawa", golongan_list)
-
-    for item in pengertian_senyawa:
-        if item["Golongan"] == selected:
-            st.info(f"{item['Golongan']}")
-            st.write(item["Pengertian"])
-
-    if st.checkbox("Tampilkan Semua Pengertian"):
-        st.table({ 
-            "Golongan": [x["Golongan"] for x in pengertian_senyawa],
-            "Pengertian": [x["Pengertian"] for x in pengertian_senyawa]
-        })
-
-# ========== TAB 3: UJI SENYAWA ==========
-# Asumsikan variabel senyawa_data sudah tersedia
-with tab3:
-    st.title("🔬 Uji Golongan Senyawa Kimia")
-    st.markdown("Pilih golongan senyawa untuk melihat jenis uji, hasil positif, dan keterangannya.")
-
-    selected = st.selectbox("Pilih Golongan Senyawa", list(senyawa_data.keys()), key="uji")
-    st.subheader(f"📋 Hasil Uji untuk: {selected}")
-
-    for uji in senyawa_data[selected]:
-        with st.expander(uji["Nama Uji"]):
-            st.markdown(f"Hasil Positif: {uji['Hasil Positif']}")
-            st.markdown(f"Keterangan: {uji['Keterangan']}")
-
 # ========== TAB 4: KELARUTAN, PH, TITIK DIDIH ==========
-# Asumsikan variabel data_senyawa sudah tersedia
 with tab4:
     st.title("📊 Data Kelarutan, Kebasaan, dan Titik Didih Senyawa")
 
@@ -217,11 +149,20 @@ with tab4:
             st.subheader(s["nama_jenis"])
             st.write(f"{s['titik_didih']} °C")
             st.write("---")
+            
+# ========== FAKTA MENARIK ==========
+fakta_menarik = [
+    "🧴 Lemak tak jenuh bereaksi dengan larutan Baeyer.",
+    "🧪 Fenol memberikan warna ungu dengan FeCl₃.",
+    "⚗ Uji Lucas membedakan alkohol primer, sekunder, tersier.",
+    "💨 NaHCO₃ bereaksi dengan asam karboksilat membebaskan CO₂.",
+    "🔬 Uji Biuret positif jika ada ikatan peptida.",
+]
 
 # ========== TAB 5: QUIZ ==========
-# Asumsikan variabel fakta_menarik sudah tersedia
 with tab5:
     st.title("🧠 Quiz Golongan Senyawa Kimia")
+
     semua_uji = []
     for golongan, daftar_uji in senyawa_data.items():
         for uji in daftar_uji:
@@ -246,7 +187,7 @@ with tab5:
 
     jawaban_pengguna = {}
     for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"Soal {i}: {soal['Nama Uji']} → Hasil: {soal['Hasil Positif']}")
+        st.markdown(f"**Soal {i}**: `{soal['Nama Uji']}` → Hasil: *{soal['Hasil Positif']}*")
         opsi = opsi_kuis[i - 1]
         jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
         jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
@@ -262,7 +203,7 @@ with tab5:
         if salah:
             st.warning("❌ Jawaban yang salah:")
             for s in salah:
-                st.markdown(f"- {s[0]}: Jawabanmu {s[1]}, seharusnya *{s[2]}")
+                st.markdown(f"- {s[0]}: Jawabanmu **{s[1]}**, seharusnya **{s[2]}**")
 
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
