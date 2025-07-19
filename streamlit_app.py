@@ -138,12 +138,12 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 with tab1:
     st.header("Apa Itu Ester Moon?")
     st.write(pengertian_estermoon[0]["deskripsi"])
-    st.subheader("👩‍🔬 Kelompok 03:")
+    st.subheader("👩‍🔬 Kelompok 04:")
     anggota = [
         "Anita Tiara Angel",
         "Dwita Widya Putri",
         "Marsya Madina Munir",
-        "Najwa Ananda Effendy",
+        "Najwa Ananda Efendi",
         "Shella Rivana Auliya"
     ]
     for nama in anggota:
@@ -172,8 +172,8 @@ with tab3:
 
     for uji in senyawa_data[selected]:
         with st.expander(uji["Nama Uji"]):
-            st.markdown(f"**Hasil Positif:** {uji['Hasil Positif']}")
-            st.markdown(f"**Keterangan:** {uji['Keterangan']}")
+            st.markdown(f"*Hasil Positif:* {uji['Hasil Positif']}")
+            st.markdown(f"*Keterangan:* {uji['Keterangan']}")
 
 # ========== TAB 4: KELARUTAN, PH, TITIK DIDIH ==========
 with tab4:
@@ -231,7 +231,7 @@ with tab5:
 
     jawaban_pengguna = {}
     for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"**Soal {i}:** {soal['Nama Uji']} → *{soal['Hasil Positif']}*")
+        st.markdown(f"*Soal {i}:* {soal['Nama Uji']} → {soal['Hasil Positif']}")
         opsi = opsi_kuis[i - 1]
         jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
         jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
@@ -247,7 +247,7 @@ with tab5:
         if salah:
             st.warning("❌ Jawaban yang salah:")
             for s in salah:
-                st.markdown(f"- {s[0]}: Jawabanmu **{s[1]}**, seharusnya **{s[2]}**")
+                st.markdown(f"- {s[0]}: Jawabanmu *{s[1]}, seharusnya **{s[2]}*")
 
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
