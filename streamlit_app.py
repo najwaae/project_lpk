@@ -1,6 +1,11 @@
 import streamlit as st
 import random
 
+# ========== DATA PENGERTIAN ESTER MOON ==========
+pengertian_estermoon = [
+   {Ester Moon adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik. Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik. Selain materi praktikum, aplikasi web ini menyediakan fitur berupa kalkulator perhitungan konsentrasi dan normalitas larutan untuk standardisasi. Dengan adanya aplikasi web ini analis akan lebih mudah dalam mengakses bahan ajar praktikum, karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja.}
+]
+
 # ========== DATA PENGERTIAN GOLONGAN SENYAWA ==========
 pengertian_senyawa = [
     {"Golongan": "Hidrokarbon", "Pengertian": "Senyawa organik yang hanya terdiri dari karbon (C) dan hidrogen (H). Dibagi menjadi: Alkana (jenuh), Alkena (tak jenuh dengan ikatan rangkap dua), Alkuna (ikatan rangkap tiga), Aromatik (cincin benzena)."},
@@ -120,15 +125,40 @@ fakta_menarik = [
 # ========== KONFIGURASI HALAMAN ==========
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
-tab1, tab2, tab3, tab4 = st.tabs([
+# ========== TAB-TAB ==========
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "📘 Pengertian EsterMoon",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "📊 Kelarutan, Kebasaan & Titik Didih",
     "🧠 Quiz Golongan Senyawa"
 ])
 
-# ========== TAB 1: Pengertian ==========
+# ========== TAB 1: ESTER MOON ==========
 with tab1:
+    st.header("Apa Itu Ester Moon?")
+    st.write("""
+        *Ester Moon* adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik.  
+        
+        Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik.  
+        Selain materi praktikum, aplikasi web ini menyediakan fitur berupa *kalkulator perhitungan konsentrasi dan normalitas larutan* untuk standardisasi.  
+        
+        Dengan adanya aplikasi web ini, analis akan lebih mudah dalam mengakses bahan ajar praktikum karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja.
+    """)
+    st.subheader("👩‍🔬 Kelompok 03:")
+    anggota = [
+        "Anita Tiara Angel",
+        "Dwita Widya Putri",
+        "Marsya Madina Munir",
+        "Najwa Ananda Effendy",
+        "Shella Rivana Auliya"
+    ]
+    for nama in anggota:
+        st.write(f"- {nama}")
+
+# ========== TAB 2: PENGERTIAN GOLONGAN SENYAWA ==========
+# Asumsikan variabel pengertian_senyawa sudah tersedia
+with tab2:
     st.title("📘 Pengertian Golongan Senyawa Kimia")
     st.markdown("Pilih golongan senyawa di bawah ini untuk melihat penjelasannya.")
 
@@ -146,8 +176,9 @@ with tab1:
             "Pengertian": [x["Pengertian"] for x in pengertian_senyawa]
         })
 
-# ========== TAB 2: Uji Senyawa ==========
-with tab2:
+# ========== TAB 3: UJI SENYAWA ==========
+# Asumsikan variabel senyawa_data sudah tersedia
+with tab3:
     st.title("🔬 Uji Golongan Senyawa Kimia")
     st.markdown("Pilih golongan senyawa untuk melihat jenis uji, hasil positif, dan keterangannya.")
 
@@ -159,8 +190,9 @@ with tab2:
             st.markdown(f"Hasil Positif: {uji['Hasil Positif']}")
             st.markdown(f"Keterangan: {uji['Keterangan']}")
 
-# ========== TAB 3: Kelarutan ==========
-with tab3:
+# ========== TAB 4: KELARUTAN, PH, TITIK DIDIH ==========
+# Asumsikan variabel data_senyawa sudah tersedia
+with tab4:
     st.title("📊 Data Kelarutan, Kebasaan, dan Titik Didih Senyawa")
 
     tab_kel, tab_pH, tab_td = st.tabs(["Uji Kelarutan", "Kebasaan (pH)", "Titik Didih"])
@@ -186,8 +218,9 @@ with tab3:
             st.write(f"{s['titik_didih']} °C")
             st.write("---")
 
-# ========== TAB 4: Quiz ==========
-with tab4:
+# ========== TAB 5: QUIZ ==========
+# Asumsikan variabel fakta_menarik sudah tersedia
+with tab5:
     st.title("🧠 Quiz Golongan Senyawa Kimia")
     semua_uji = []
     for golongan, daftar_uji in senyawa_data.items():
@@ -213,7 +246,7 @@ with tab4:
 
     jawaban_pengguna = {}
     for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"Soal {i}: *{soal['Nama Uji']}* → Hasil: {soal['Hasil Positif']}")
+        st.markdown(f"Soal {i}: {soal['Nama Uji']} → Hasil: {soal['Hasil Positif']}")
         opsi = opsi_kuis[i - 1]
         jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
         jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
@@ -229,7 +262,7 @@ with tab4:
         if salah:
             st.warning("❌ Jawaban yang salah:")
             for s in salah:
-                st.markdown(f"- {s[0]}: Jawabanmu *{s[1]}, seharusnya **{s[2]}*")
+                st.markdown(f"- {s[0]}: Jawabanmu {s[1]}, seharusnya *{s[2]}")
 
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
