@@ -122,6 +122,58 @@ data_senyawa = [
     {"nama_jenis": "Protein (contoh: albumin)", "kelarutan": "Larut dalam air (larutan koloid)", "kebasaan": "Netral–sedikit asam (pH ~6–7)", "titik_didih": "Terdenaturasi sebelum mendidih"},
     {"nama_jenis": "Lemak & Minyak (contoh: trigliserida)", "kelarutan": "Tidak larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": ">300 (dekomposisi)"},
 ]
+# ========== KONFIGURASI HALAMAN ==========
+st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
+
+# ========== TAB-TAB ==========
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "📘 Pengertian EsterMoon",
+    "📘 Pengertian Senyawa",
+    "🔬 Uji Senyawa",
+    "📊 Kelarutan, Kebasaan & Titik Didih",
+    "🧠 Quiz Golongan Senyawa"
+])
+
+# ========== TAB 1: ESTER MOON ==========
+with tab1:
+    st.header("Apa Itu Ester Moon?")
+    st.write(pengertian_estermoon[0]["deskripsi"])
+    st.subheader("👩‍🔬 Kelompok 03:")
+    anggota = [
+        "Anita Tiara Angel",
+        "Dwita Widya Putri",
+        "Marsya Madina Munir",
+        "Najwa Ananda Effendy",
+        "Shella Rivana Auliya"
+    ]
+    for nama in anggota:
+        st.write(f"- {nama}")
+
+# ========== TAB 2: PENGERTIAN GOLONGAN SENYAWA ==========
+with tab2:
+    st.title("📘 Pengertian Golongan Senyawa Kimia")
+    golongan_list = [x["Golongan"] for x in pengertian_senyawa]
+    selected = st.selectbox("Pilih Golongan Senyawa", golongan_list, key="pengertian")
+
+    for item in pengertian_senyawa:
+        if item["Golongan"] == selected:
+            st.info(f"{item['Golongan']}")
+            st.write(item["Pengertian"])
+
+    if st.checkbox("Tampilkan Semua Pengertian"):
+        df_pengertian = pd.DataFrame(pengertian_senyawa)
+        st.dataframe(df_pengertian)
+
+# ========== TAB 3: UJI SENYAWA ==========
+with tab3:
+    st.title("🔬 Uji Golongan Senyawa Kimia")
+    selected = st.selectbox("Pilih Golongan Senyawa", list(senyawa_data.keys()), key="uji_senyawa")
+    st.subheader(f"📋 Hasil Uji untuk: {selected}")
+
+    for uji in senyawa_data[selected]:
+        with st.expander(uji["Nama Uji"]):
+            st.markdown(f"**Hasil Positif:** {uji['Hasil Positif']}")
+            st.markdown(f"**Keterangan:** {uji['Keterangan']}")
 
 # ========== TAB 4: KELARUTAN, PH, TITIK DIDIH ==========
 with tab4:
@@ -147,22 +199,14 @@ with tab4:
         st.header("Titik Didih Senyawa (°C)")
         for s in data_senyawa:
             st.subheader(s["nama_jenis"])
-            st.write(f"{s['titik_didih']} °C")
+            titik_didih = s["titik_didih"]
+            satuan = "°C" if isinstance(titik_didih, (int, float)) else ""
+            st.write(f"{titik_didih} {satuan}")
             st.write("---")
-            
-# ========== FAKTA MENARIK ==========
-fakta_menarik = [
-    "🧴 Lemak tak jenuh bereaksi dengan larutan Baeyer.",
-    "🧪 Fenol memberikan warna ungu dengan FeCl₃.",
-    "⚗ Uji Lucas membedakan alkohol primer, sekunder, tersier.",
-    "💨 NaHCO₃ bereaksi dengan asam karboksilat membebaskan CO₂.",
-    "🔬 Uji Biuret positif jika ada ikatan peptida.",
-]
 
 # ========== TAB 5: QUIZ ==========
 with tab5:
     st.title("🧠 Quiz Golongan Senyawa Kimia")
-
     semua_uji = []
     for golongan, daftar_uji in senyawa_data.items():
         for uji in daftar_uji:
@@ -187,7 +231,7 @@ with tab5:
 
     jawaban_pengguna = {}
     for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"**Soal {i}**: `{soal['Nama Uji']}` → Hasil: *{soal['Hasil Positif']}*")
+        st.markdown(f"**Soal {i}:** {soal['Nama Uji']} → *{soal['Hasil Positif']}*")
         opsi = opsi_kuis[i - 1]
         jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
         jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
