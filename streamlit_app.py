@@ -1,9 +1,5 @@
-import streamlit as st import random
-
-# ========== DATA PENGERTIAN ESTER MOON ==========
-pengertian_estermoon = [
-   {Ester Moon adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik. Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik. Selain materi praktikum, aplikasi web ini menyediakan fitur berupa kalkulator perhitungan konsentrasi dan normalitas larutan untuk standardisasi. Dengan adanya aplikasi web ini analis akan lebih mudah dalam mengakses bahan ajar praktikum, karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja.}
-]
+import streamlit as st
+import random
 
 # ========== DATA PENGERTIAN GOLONGAN SENYAWA ==========
 pengertian_senyawa = [
@@ -120,99 +116,125 @@ fakta_menarik = [
     "🔬 Uji Biuret positif jika ada ikatan peptida.",
 ]
 
-========== KONFIGURASI HALAMAN ==========
-
+# ========== KONFIGURASI HALAMAN ==========
+# ========== KONFIGURASI HALAMAN ==========
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs([ "📘 Pengertian EsterMoon", "📘 Pengertian Senyawa", "🔬 Uji Senyawa", "📊 Kelarutan, Kebasaan & Titik Didih", "🧠 Quiz Golongan Senyawa" ])
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📘 Pengertian Senyawa",
+    "🔬 Uji Senyawa",
+    "📊 Kelarutan, Kebasaan & Titik Didih",
+    "🧠 Quiz Golongan Senyawa"
+])
 
-========== TAB 1: ESTER MOON ==========
+# ========== TAB 1: Pengertian ==========
+with tab1:
+    st.title("📘 Pengertian Golongan Senyawa Kimia")
+    st.markdown("Pilih golongan senyawa di bawah ini untuk melihat penjelasannya.")
 
-with tab1: st.header("Apa Itu Ester Moon?") st.write(""" Ester Moon adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik.
-Materi dasar ini mengasah skill analis dalam bidang analitik.
-Web juga menyediakan kalkulator konsentrasi dan normalitas larutan.
-Materi fleksibel dan bisa diakses kapan saja. """) st.subheader("👩‍🔬 Kelompok 03:") for nama in ["Anita", "Dwita", "Marsya", "Najwa", "Shella"]: st.write(f"- {nama}")
+    golongan_list = [x["Golongan"] for x in pengertian_senyawa]
+    selected = st.selectbox("Pilih Golongan Senyawa", golongan_list)
 
-========== TAB 2: PENGERTIAN SENYAWA ==========
+    for item in pengertian_senyawa:
+        if item["Golongan"] == selected:
+            st.info(f"{item['Golongan']}")
+            st.write(item["Pengertian"])
 
-with tab2: st.title("📘 Pengertian Golongan Senyawa Kimia") selected = st.selectbox("Pilih Golongan Senyawa", [x["Golongan"] for x in pengertian_senyawa]) for item in pengertian_senyawa: if item["Golongan"] == selected: st.info(item["Golongan"]) st.write(item["Pengertian"])
+    if st.checkbox("Tampilkan Semua Pengertian"):
+        st.table({ 
+            "Golongan": [x["Golongan"] for x in pengertian_senyawa],
+            "Pengertian": [x["Pengertian"] for x in pengertian_senyawa]
+        })
 
-if st.checkbox("Tampilkan Semua Pengertian"):
-    st.table({
-        "Golongan": [x["Golongan"] for x in pengertian_senyawa],
-        "Pengertian": [x["Pengertian"] for x in pengertian_senyawa]
-    })
+# ========== TAB 2: Uji Senyawa ==========
+with tab2:
+    st.title("🔬 Uji Golongan Senyawa Kimia")
+    st.markdown("Pilih golongan senyawa untuk melihat jenis uji, hasil positif, dan keterangannya.")
 
-========== TAB 3: UJI SENYAWA ==========
+    selected = st.selectbox("Pilih Golongan Senyawa", list(senyawa_data.keys()), key="uji")
+    st.subheader(f"📋 Hasil Uji untuk: {selected}")
 
-with tab3: st.title("🔬 Uji Golongan Senyawa Kimia") selected = st.selectbox("Pilih Golongan Senyawa", list(senyawa_data.keys()), key="uji") st.subheader(f"📋 Hasil Uji untuk: {selected}") for uji in senyawa_data[selected]: with st.expander(uji["Nama Uji"]): st.markdown(f"Hasil Positif: {uji['Hasil Positif']}") st.markdown(f"Keterangan: {uji['Keterangan']}")
+    for uji in senyawa_data[selected]:
+        with st.expander(uji["Nama Uji"]):
+            st.markdown(f"Hasil Positif: {uji['Hasil Positif']}")
+            st.markdown(f"Keterangan: {uji['Keterangan']}")
 
-========== TAB 4: KELARUTAN, PH, TITIK DIDIH ==========
+# ========== TAB 3: Kelarutan ==========
+with tab3:
+    st.title("📊 Data Kelarutan, Kebasaan, dan Titik Didih Senyawa")
 
-with tab4: st.title("📊 Data Kelarutan, Kebasaan, dan Titik Didih Senyawa") tab_kel, tab_pH, tab_td = st.tabs(["Uji Kelarutan", "Kebasaan (pH)", "Titik Didih"])
+    tab_kel, tab_pH, tab_td = st.tabs(["Uji Kelarutan", "Kebasaan (pH)", "Titik Didih"])
 
-with tab_kel:
-    for s in data_senyawa:
-        st.subheader(s["nama_jenis"])
-        st.write(s["kelarutan"])
-        st.write("---")
+    with tab_kel:
+        st.header("Uji Kelarutan Senyawa")
+        for s in data_senyawa:
+            st.subheader(s["nama_jenis"])
+            st.write(s["kelarutan"])
+            st.write("---")
 
-with tab_pH:
-    for s in data_senyawa:
-        st.subheader(s["nama_jenis"])
-        st.write(s["kebasaan"])
-        st.write("---")
+    with tab_pH:
+        st.header("Kebasaan Senyawa (pH)")
+        for s in data_senyawa:
+            st.subheader(s["nama_jenis"])
+            st.write(s["kebasaan"])
+            st.write("---")
 
-with tab_td:
-    for s in data_senyawa:
-        st.subheader(s["nama_jenis"])
-        st.write(f"{s['titik_didih']} °C")
-        st.write("---")
+    with tab_td:
+        st.header("Titik Didih Senyawa (°C)")
+        for s in data_senyawa:
+            st.subheader(s["nama_jenis"])
+            st.write(f"{s['titik_didih']} °C")
+            st.write("---")
 
-========== TAB 5: QUIZ ==========
+# ========== TAB 4: Quiz ==========
+with tab4:
+    st.title("🧠 Quiz Golongan Senyawa Kimia")
+    semua_uji = []
+    for golongan, daftar_uji in senyawa_data.items():
+        for uji in daftar_uji:
+            semua_uji.append({**uji, "Golongan": golongan})
 
-with tab5: st.title("🧠 Quiz Golongan Senyawa Kimia") semua_uji = [] for gol, daftar_uji in senyawa_data.items(): for uji in daftar_uji: semua_uji.append({**uji, "Golongan": gol})
+    jumlah_soal = min(15, len(semua_uji))
 
-jumlah_soal = min(15, len(semua_uji))
+    if "soal_kuis" not in st.session_state:
+        st.session_state["soal_kuis"] = random.sample(semua_uji, k=jumlah_soal)
+        st.session_state["opsi_kuis"] = []
+        for soal in st.session_state["soal_kuis"]:
+            opsi = random.sample(list(senyawa_data.keys()), 4)
+            if soal["Golongan"] not in opsi:
+                opsi[random.randint(0, 3)] = soal["Golongan"]
+            random.shuffle(opsi)
+            st.session_state["opsi_kuis"].append(opsi)
 
-if "soal_kuis" not in st.session_state:
-    st.session_state["soal_kuis"] = random.sample(semua_uji, jumlah_soal)
-    st.session_state["opsi_kuis"] = []
-    for soal in st.session_state["soal_kuis"]:
-        semua_golongan = list(senyawa_data.keys())
-        opsi = random.sample(semua_golongan, min(4, len(semua_golongan)))
-        if soal["Golongan"] not in opsi:
-            opsi[random.randint(0, len(opsi) - 1)] = soal["Golongan"]
-        random.shuffle(opsi)
-        st.session_state["opsi_kuis"].append(opsi)
+    soal_kuis = st.session_state["soal_kuis"]
+    opsi_kuis = st.session_state["opsi_kuis"]
 
-soal_kuis = st.session_state["soal_kuis"]
-opsi_kuis = st.session_state["opsi_kuis"]
-jawaban_pengguna = {}
+    st.markdown("Jawab semua soal terlebih dahulu, lalu klik Submit Jawaban.")
 
-for i, soal in enumerate(soal_kuis, 1):
-    st.markdown(f"Soal {i}: {soal['Nama Uji']} → Hasil: {soal['Hasil Positif']}")
-    opsi = opsi_kuis[i - 1]
-    jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
-    jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
+    jawaban_pengguna = {}
+    for i, soal in enumerate(soal_kuis, 1):
+        st.markdown(f"Soal {i}: *{soal['Nama Uji']}* → Hasil: {soal['Hasil Positif']}")
+        opsi = opsi_kuis[i - 1]
+        jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
+        jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
 
-if st.button("📤 Submit Jawaban"):
-    benar = sum(1 for k in jawaban_pengguna if jawaban_pengguna[k]["jawaban"] == jawaban_pengguna[k]["benar"])
-    skor = (benar / jumlah_soal) * 100
+    if st.button("📤 Submit Jawaban"):
+        benar = sum(1 for k in jawaban_pengguna if jawaban_pengguna[k]["jawaban"] == jawaban_pengguna[k]["benar"])
+        skor = (benar / jumlah_soal) * 100
 
-    st.success(f"✅ Kamu menjawab {benar} dari {jumlah_soal} soal dengan benar.")
-    st.info(f"🎯 Skor akhir: {skor:.2f}%")
+        st.success(f"✅ Kamu menjawab {benar} dari {jumlah_soal} soal dengan benar.")
+        st.info(f"🎯 Skor akhir: {skor:.2f}%")
 
-    salah = [(k, v["jawaban"], v["benar"]) for k, v in jawaban_pengguna.items() if v["jawaban"] != v["benar"]]
-    if salah:
-        st.warning("❌ Jawaban yang salah:")
-        for s in salah:
-            st.markdown(f"- {s[0]}: Jawabanmu {s[1]}, seharusnya *{s[2]}")
+        salah = [(k, v["jawaban"], v["benar"]) for k, v in jawaban_pengguna.items() if v["jawaban"] != v["benar"]]
+        if salah:
+            st.warning("❌ Jawaban yang salah:")
+            for s in salah:
+                st.markdown(f"- {s[0]}: Jawabanmu *{s[1]}, seharusnya **{s[2]}*")
 
-    st.markdown("---")
-    st.subheader("💡 Fakta Menarik Kimia")
-    st.info(random.choice(fakta_menarik))
+        st.markdown("---")
+        st.subheader("💡 Fakta Menarik Kimia")
+        st.info(random.choice(fakta_menarik))
 
-========== FOOTER ==========
-
-st.markdown("---") st.caption("© 2025 | Uji Senyawa Kimia Interaktif by Streamlit 🎓")
+# ========== FOOTER ==========
+st.markdown("---")
+st.caption("© 2025 | Uji Senyawa Kimia Interaktif by Streamlit 🎓")
