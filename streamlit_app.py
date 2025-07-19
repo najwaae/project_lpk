@@ -1,5 +1,6 @@
 import streamlit as st
 import random
+import pandas as pd
 
 # ========== DATA PENGERTIAN ESTER MOON ==========
 pengertian_estermoon = [
