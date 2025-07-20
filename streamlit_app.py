@@ -132,7 +132,7 @@ st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 # ========== TAB-TAB ==========
 tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "🏠 Beranda",
-    "📘 Tentang OrgoVerse",
+    "📙 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "📊 Kelarutan, Kebasaan & Titik Didih",
@@ -163,11 +163,12 @@ with tab1:
     st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
     anggota = [
-        "Anita Tiara Angel",
-        "Dwita Widya Putri",
-        "Marsya Madina Munir",
-        "Najwa Ananda Efendi",
-        "Shella Rivana Auliya"
+        "ANITA TIARA ANGEL (2460328)"
+        "DWITA WIDYA PUTRI (2460361)"
+        "MARSYA MADINA MUNIR (2460413)"
+        "NAJWA ANANDA EFENDI (2460457)"
+        "SHELLA RIVANA AULIYA (2460516)"
+
     ]
     for nama in anggota:
         st.write(f"- {nama}")
