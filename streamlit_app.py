@@ -133,12 +133,6 @@ data_senyawa = [
 # ========== KONFIGURASI HALAMAN ==========
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
-# ========== LOGO DAN OPENING ==========
-st.image("orgoverse_logo.png", width=150)  # tampilkan logo
-st.title("👋 Welcome to Our Web!")
-st.write("Selamat datang di aplikasi Uji Senyawa Kimia Interaktif.")
-st.markdown("---")
-
 # ========== KONFIGURASI HALAMAN ==========
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
