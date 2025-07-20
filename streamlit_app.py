@@ -2,13 +2,6 @@ import streamlit as st
 import random
 import pandas as pd
 
-# ========== TAMPILAN BERANDA DENGAN LOGO ==========
-st.image("orgoverse_logo.png", width=200)  # Pastikan file logo ini ada di folder yang sama
-st.title("Selamat Datang di OrgoVerse!")
-st.markdown("*Platform interaktif untuk memahami golongan senyawa kimia secara menyenangkan.*")
-st.markdown("🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!")
-st.markdown("---")
-
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
     {
