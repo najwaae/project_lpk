@@ -141,7 +141,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 # ========== TAB 1: ORGOVERSE ==========
 with tab1:
     st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
-    st.image("orgoverse_logo.png", width=200)
+    st.image("orgoverse_logo.jpg", width=200)
     st.markdown(
         """
         <h1 style='margin-top: 20px;'>Selamat Datang di <span style="color:#6c63ff;">OrgoVerse!</span></h1>
