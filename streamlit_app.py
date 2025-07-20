@@ -141,7 +141,7 @@ tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
 
 # ========== TAB 0: BERANDA ==========
 with tab0:
-    st.image("orgoverse_logo.png", width=200)  # Pastikan file logo ini bernama orgoverse_logo.png dan ada di folder yang sama
+    st.image("orgoverse_logo.png", center; width=200) 
     st.title("Selamat Datang di OrgoVerse!")
     st.markdown("*Platform interaktif untuk memahami golongan senyawa kimia secara menyenangkan.*")
     st.markdown("🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!")
