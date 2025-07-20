@@ -163,10 +163,10 @@ with tab1:
     st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
     anggota = [
-        "ANITA TIARA ANGEL (2460328)"
-        "DWITA WIDYA PUTRI (2460361)"
-        "MARSYA MADINA MUNIR (2460413)"
-        "NAJWA ANANDA EFENDI (2460457)"
+        "ANITA TIARA ANGEL (2460328)",
+        "DWITA WIDYA PUTRI (2460361)",
+        "MARSYA MADINA MUNIR (2460413)",
+        "NAJWA ANANDA EFENDI (2460457)",
         "SHELLA RIVANA AULIYA (2460516)"
 
     ]
