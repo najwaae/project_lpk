@@ -2,8 +2,6 @@ import streamlit as st
 import random
 import pandas as pd
 
-printf("welcome to our web") #opening
-
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
     {
