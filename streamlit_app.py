@@ -2,10 +2,10 @@ import streamlit as st
 import random
 import pandas as pd
 
-# ========== DATA PENGERTIAN ESTER MOON ==========
-pengertian_estermoon = [
+# ========== DATA PENGERTIAN ORGOVERSE ==========
+pengertian_orgoverse = [
     {
-        "deskripsi": "Ester Moon adalah aplikasi web yang bergerak dalam menyediakan bahan ajar berupa kumpulan materi praktikum analisis titrimetri dan kimia organik. Materi praktikum yang tersedia merupakan materi dasar yang dapat mengasah skill analis dalam bidang analitik. Selain materi praktikum, aplikasi web ini menyediakan fitur berupa kalkulator perhitungan konsentrasi dan normalitas larutan untuk standardisasi. Dengan adanya aplikasi web ini analis akan lebih mudah dalam mengakses bahan ajar praktikum, karena bahan ajar yang tersedia sangat fleksibel dan bisa diakses kapan saja."
+        "deskripsi": "OrgoVerse (Organik Universe) adalah website yang berisi materi kimia organik khusus tentang senyawa kimia. Website ini dilengkapi fitur fakta menarik dan kuis untuk mengasah pengetahuan, serta menyediakan antarmuka interaktif dan responsif agar pembelajaran dapat berlangsung fleksibel dan mudah diakses kapan saja dan di mana saja."
     }
 ]
 
@@ -128,17 +128,17 @@ st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
 # ========== TAB-TAB ==========
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📘 Pengertian EsterMoon",
+    "📘 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "📊 Kelarutan, Kebasaan & Titik Didih",
     "🧠 Quiz Golongan Senyawa"
 ])
 
-# ========== TAB 1: ESTER MOON ==========
+# ========== TAB 1: ORGOVERSE ==========
 with tab1:
-    st.header("Apa Itu Ester Moon?")
-    st.write(pengertian_estermoon[0]["deskripsi"])
+    st.header("Apa Itu OrgoVerse?")
+    st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
     anggota = [
         "Anita Tiara Angel",
@@ -173,8 +173,8 @@ with tab3:
 
     for uji in senyawa_data[selected]:
         with st.expander(uji["Nama Uji"]):
-            st.markdown(f"*Hasil Positif:* {uji['Hasil Positif']}")
-            st.markdown(f"*Keterangan:* {uji['Keterangan']}")
+            st.markdown(f"Hasil Positif: {uji['Hasil Positif']}")
+            st.markdown(f"Keterangan: {uji['Keterangan']}")
 
 # ========== TAB 4: KELARUTAN, PH, TITIK DIDIH ==========
 with tab4:
@@ -232,7 +232,7 @@ with tab5:
 
     jawaban_pengguna = {}
     for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"*Soal {i}:* {soal['Nama Uji']} → {soal['Hasil Positif']}")
+        st.markdown(f"Soal {i}: {soal['Nama Uji']} → {soal['Hasil Positif']}")
         opsi = opsi_kuis[i - 1]
         jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
         jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
@@ -248,7 +248,7 @@ with tab5:
         if salah:
             st.warning("❌ Jawaban yang salah:")
             for s in salah:
-                st.markdown(f"- {s[0]}: Jawabanmu *{s[1]}, seharusnya **{s[2]}*")
+                st.markdown(f"- {s[0]}: Jawabanmu {s[1]}, seharusnya **{s[2]}")
 
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
