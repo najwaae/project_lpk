@@ -140,12 +140,22 @@ tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
 ])
 
 # ========== TAB 0: BERANDA ==========
+# ========== TAB 0: BERANDA ==========
 with tab0:
-    st.image("orgoverse_logo.png", center; width=200) 
-    st.title("Selamat Datang di OrgoVerse!")
-    st.markdown("*Platform interaktif untuk memahami golongan senyawa kimia secara menyenangkan.*")
-    st.markdown("🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!")
-    st.markdown("---")
+    st.markdown(
+        """
+        <div style='text-align: center; padding-top: 30px;'>
+            <img src='orgoverse_logo.png' width='200'>
+            <h1 style='margin-top: 20px;'>Selamat Datang di <span style="color:#6c63ff;">OrgoVerse!</span></h1>
+            <p style='font-size: 18px;'>
+                <strong>Platform interaktif</strong> untuk memahami <em>golongan senyawa kimia</em> secara menyenangkan dan mudah diakses.
+            </p>
+            <p style='font-size: 16px;'>🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!</p>
+            <hr style='margin-top: 40px;'>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 # ========== TAB 1: ORGOVERSE ==========
 with tab1:
