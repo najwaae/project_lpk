@@ -2,7 +2,7 @@ import streamlit as st
 import random
 import pandas as pd
 
-printf('welcome to our web') #opening
+printf("welcome to our web") #opening
 
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
@@ -127,6 +127,11 @@ data_senyawa = [
 ]
 # ========== KONFIGURASI HALAMAN ==========
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
+
+# ========== OPENING ==========
+st.markdown("<h1 style='text-align: center; color: #4CAF50;'>👋 Welcome to Our Web!</h1>", unsafe_allow_html=True)
+st.write("Selamat datang di aplikasi *Uji Senyawa Kimia Interaktif* berbasis Streamlit. Mari belajar sambil bermain!")
+st.markdown("---")
 
 # ========== TAB-TAB ==========
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
