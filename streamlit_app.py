@@ -129,8 +129,9 @@ data_senyawa = [
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
 # ========== OPENING ==========
-st.markdown("<h1 style='text-align: center; color: #4CAF50;'>👋 Welcome to Our Web!</h1>", unsafe_allow_html=True)
-st.write("Selamat datang di aplikasi *Uji Senyawa Kimia Interaktif* berbasis Streamlit. Mari belajar sambil bermain!")
+st.title("👋 Welcome to Our Web!")
+st.write("Selamat datang di aplikasi Uji Senyawa Kimia Interaktif berbasis Streamlit.")
+st.write("Yuk belajar dan eksplorasi senyawa kimia dengan mudah dan menyenangkan!")
 st.markdown("---")
 
 # ========== TAB-TAB ==========
