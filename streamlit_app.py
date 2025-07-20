@@ -130,17 +130,16 @@ st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
 
 # ========== TAB-TAB ==========
-tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "🏠 Beranda",
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📙 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "📊 Kelarutan, Kebasaan & Titik Didih",
     "🧠 Quiz Golongan Senyawa"
 ])
-
-# ========== TAB 0: BERANDA ==========
-with tab0:
+    
+# ========== TAB 1: ORGOVERSE ==========
+with tab1:
     st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
     st.image("orgoverse_logo.png", width=200)
     st.markdown(
@@ -155,9 +154,6 @@ with tab0:
         unsafe_allow_html=True
     )
     st.markdown("</div>", unsafe_allow_html=True)
-    
-# ========== TAB 1: ORGOVERSE ==========
-with tab1:
     st.title("👋 Welcome to OrgoVerse!")
     st.header("Apa Itu OrgoVerse?")
     st.write(pengertian_orgoverse[0]["deskripsi"])
