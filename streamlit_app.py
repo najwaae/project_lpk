@@ -154,7 +154,6 @@ with tab1:
         unsafe_allow_html=True
     )
     st.markdown("</div>", unsafe_allow_html=True)
-    st.title("👋 Welcome to OrgoVerse!")
     st.header("Apa Itu OrgoVerse?")
     st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
