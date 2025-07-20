@@ -137,7 +137,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 
 # ========== TAB 1: ORGOVERSE ==========
 with tab1:
-    st.title("👋 Welcome to Our Web!")
+    st.title("👋 Welcome to OrgoVerse!")
     st.header("Apa Itu OrgoVerse?")
     st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
