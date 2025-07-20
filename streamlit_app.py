@@ -2,6 +2,13 @@ import streamlit as st
 import random
 import pandas as pd
 
+# ========== TAMPILAN BERANDA DENGAN LOGO ==========
+st.image("orgoverse_logo.png", width=200)  # Pastikan file logo ini ada di folder yang sama
+st.title("Selamat Datang di OrgoVerse!")
+st.markdown("*Platform interaktif untuk memahami golongan senyawa kimia secara menyenangkan.*")
+st.markdown("🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!")
+st.markdown("---")
+
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
     {
@@ -132,14 +139,26 @@ st.title("👋 Welcome to Our Web!")
 st.write("Selamat datang di aplikasi Uji Senyawa Kimia Interaktif.")
 st.markdown("---")
 
+# ========== KONFIGURASI HALAMAN ==========
+st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
+
 # ========== TAB-TAB ==========
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "🏠 Beranda",
     "📘 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "📊 Kelarutan, Kebasaan & Titik Didih",
     "🧠 Quiz Golongan Senyawa"
 ])
+
+# ========== TAB 0: BERANDA ==========
+with tab0:
+    st.image("orgoverse_logo.png", width=200)  # Pastikan file logo ini bernama orgoverse_logo.png dan ada di folder yang sama
+    st.title("Selamat Datang di OrgoVerse!")
+    st.markdown("*Platform interaktif untuk memahami golongan senyawa kimia secara menyenangkan.*")
+    st.markdown("🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!")
+    st.markdown("---")
 
 # ========== TAB 1: ORGOVERSE ==========
 with tab1:
