@@ -2,6 +2,9 @@ import streamlit as st
 import random
 import pandas as pd
 
+# ========== SETUP HALAMAN ==========
+st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
+
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
     {
@@ -16,21 +19,25 @@ pengertian_senyawa = [
     {"Golongan": "Alkohol Sekunder", "Pengertian": "OH terikat pada karbon yang terhubung ke dua atom C lain (contoh: isopropanol)."},
     {"Golongan": "Alkohol Tersier", "Pengertian": "OH terikat pada karbon yang terhubung ke tiga atom C lain (contoh: tert-butanol)."},
     {"Golongan": "Fenol", "Pengertian": "Senyawa aromatik dengan gugus -OH langsung terikat pada cincin benzena. Lebih asam dari alkohol biasa."},
-    {"Golongan": "Eter", "Pengertian": "Senyawa dengan struktur R-O-R′, di mana R dan R′ adalah gugus alkil atau aril. Tidak memiliki gugus -OH bebas."},
-    {"Golongan": "Aldehida", "Pengertian": "Mengandung gugus karbonil (C=O) di ujung rantai karbon, yaitu -CHO. Contoh: formaldehida."},
+    {"Golongan": "Eter", "Pengertian": "Senyawa dengan struktur R‑O‑R′, di mana R dan R′ adalah gugus alkil atau aril. Tidak memiliki gugus ‑OH bebas."},
+    {"Golongan": "Aldehida", "Pengertian": "Mengandung gugus karbonil (C=O) di ujung rantai karbon, yaitu ‑CHO. Contoh: formaldehida."},
     {"Golongan": "Keton", "Pengertian": "Mengandung gugus karbonil (C=O) di tengah rantai karbon, bukan di ujung. Contoh: aseton."},
     {"Golongan": "Karbohidrat", "Pengertian": "Senyawa organik dengan rumus umum Cₙ(H₂O)ₙ. Contoh: glukosa, fruktosa. Sumber energi."},
-    {"Golongan": "Asam Karboksilat", "Pengertian": "Mengandung gugus -COOH. Bersifat asam dan dapat membentuk garam atau ester. Contoh: asam asetat."},
-    {"Golongan": "Amina Primer", "Pengertian": "Satu gugus alkil/aril terikat pada nitrogen (R-NH₂)."},
+    {"Golongan": "Asam Karboksilat", "Pengertian": "Mengandung gugus ‑COOH. Bersifat asam dan dapat membentuk garam atau ester. Contoh: asam asetat."},
+    {"Golongan": "Amina Primer", "Pengertian": "Satu gugus alkil/aril terikat pada nitrogen (R‑NH₂)."},
     {"Golongan": "Amina Sekunder", "Pengertian": "Dua gugus alkil/aril terikat pada nitrogen (R₂NH)."},
     {"Golongan": "Amina Tersier", "Pengertian": "Tiga gugus alkil/aril terikat pada nitrogen (R₃N)."},
     {"Golongan": "Amina", "Pengertian": "Senyawa yang mengandung atom nitrogen dengan gugus alkil/aril."},
     {"Golongan": "Protein", "Pengertian": "Polimer asam amino dengan ikatan peptida. Fungsi: enzim, transport, struktural, dsb."},
     {"Golongan": "Lemak & Minyak", "Pengertian": "Lemak: padat pada suhu ruang (dari hewan). Minyak: cair pada suhu ruang (dari tumbuhan). Cadangan energi."},
+]
+
+# ========== DATA PROPERTI ----------------------------------------------------------------------------------
+properti_senyawa = [
     {"nama_jenis": "Hidrokarbon (contoh: heksana)", "kelarutan": "Tidak larut dalam air, larut dalam pelarut non-polar", "kebasaan": "Netral (pH ~7)", "titik_didih": 68.7},
     {"nama_jenis": "Alkohol Primer (contoh: etanol)", "kelarutan": "Larut dalam air dan etanol", "kebasaan": "Netral (pH ~7)", "titik_didih": 78.4},
     {"nama_jenis": "Alkohol Sekunder (contoh: isopropanol)", "kelarutan": "Larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 82.6},
-    {"nama_jenis": "Alkohol Tersier (contoh: tert-butanol)", "kelarutan": "Larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 82.2},
+    {"nama_jenis": "Alkohol Tersier (contoh: tert‑butanol)", "kelarutan": "Larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 82.2},
     {"nama_jenis": "Fenol", "kelarutan": "Sedikit larut dalam air", "kebasaan": "Sedikit asam (pH ~5.5)", "titik_didih": 181.7},
     {"nama_jenis": "Eter (contoh: dietil eter)", "kelarutan": "Sedikit larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 34.6},
     {"nama_jenis": "Aldehida (contoh: asetaldehida)", "kelarutan": "Larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 20.2},
@@ -124,18 +131,15 @@ senyawa_data = {
     ],
 }
 
-# ========== SETUP HALAMAN ==========
-st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
-
 # ========== TABS ==========
 tab1, tab2, tab3, tab4 = st.tabs([
-    "🌍 Tentang OrgoVerse",
+    "📙 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "🧠 Quiz Golongan Senyawa"
 ])
 
-# ========== TAB 1: ORGOVERSE ==========
+# ===== Tab 1 =====
 with tab1:
     st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
     st.image("orgoverse_logo.png", width=200)
@@ -146,7 +150,6 @@ with tab1:
         <hr style='margin-top: 40px;'>
     """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
-
     st.header("Apa Itu OrgoVerse?")
     st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
@@ -160,85 +163,68 @@ with tab1:
     for nama in anggota:
         st.write(f"- {nama}")
 
-# ========== TAB 2: PENGERTIAN SENYAWA ==========
+# ===== Tab 2 =====
 with tab2:
     st.title("📘 Pengertian Golongan Senyawa Kimia")
-    golongan_list = [x["Golongan"] for x in pengertian_senyawa]
-    selected = st.selectbox("Pilih Golongan Senyawa", golongan_list, key="pengertian")
-
+    sel = st.selectbox("Pilih Golongan Senyawa", [x["Golongan"] for x in pengertian_senyawa])
     for item in pengertian_senyawa:
-        if item["Golongan"] == selected:
-            st.info(f"{item['Golongan']}")
+        if item["Golongan"] == sel:
+            st.info(item["Golongan"])
             st.write(item["Pengertian"])
-
     if st.checkbox("Tampilkan Semua Pengertian"):
-        df_pengertian = pd.DataFrame(pengertian_senyawa)
-        st.dataframe(df_pengertian)
+        st.dataframe(pd.DataFrame(pengertian_senyawa))
 
-# ========== TAB 3: UJI SENYAWA ==========
+# ===== Tab 3 =====
 with tab3:
     st.title("🔬 Uji Golongan Senyawa Kimia")
-    selected = st.selectbox("Pilih Golongan Senyawa", list(senyawa_data.keys()), key="uji_senyawa")
-    st.subheader(f"📋 Hasil Uji untuk: {selected}")
-
-    for uji in senyawa_data[selected]:
+    sel2 = st.selectbox("Pilih Golongan Senyawa", list(senyawa_data.keys()))
+    st.subheader(f"Hasil Uji untuk: {sel2}")
+    for uji in senyawa_data[sel2]:
         with st.expander(uji["Nama Uji"]):
             st.markdown(f"**Hasil Positif:** {uji['Hasil Positif']}")
             st.markdown(f"**Keterangan:** {uji['Keterangan']}")
             if "Penjelasan" in uji:
                 st.markdown(f"**Penjelasan:** {uji['Penjelasan']}")
 
-# ========== TAB 4: QUIZ ==========
+# ===== Tab 4 =====
 with tab4:
     st.title("🧠 Quiz Golongan Senyawa Kimia")
-
     semua_uji = []
-    for golongan, daftar_uji in senyawa_data.items():
-        for uji in daftar_uji:
-            semua_uji.append({**uji, "Golongan": golongan})
+    for gol, daftar in senyawa_data.items():
+        for soal in daftar:
+            semua_uji.append({**soal, "Golongan": gol})
+    jumlah = min(10, len(semua_uji))
+    if "soal" not in st.session_state:
+        st.session_state.soal = random.sample(semua_uji, jumlah)
+        st.session_state.opsi = [
+            random.sample(list(senyawa_data.keys()), 4) for _ in range(jumlah)
+        ]
+        for idx, soal in enumerate(st.session_state.soal):
+            if soal["Golongan"] not in st.session_state.opsi[idx]:
+                st.session_state.opsi[idx][random.randint(0,3)] = soal["Golongan"]
+            random.shuffle(st.session_state.opsi[idx])
 
-    jumlah_soal = min(10, len(semua_uji))  # Bisa diubah sesuai keinginan
-
-    if "soal_kuis" not in st.session_state:
-        st.session_state["soal_kuis"] = random.sample(semua_uji, k=jumlah_soal)
-        st.session_state["opsi_kuis"] = []
-        for soal in st.session_state["soal_kuis"]:
-            opsi = random.sample(list(senyawa_data.keys()), 4)
-            if soal["Golongan"] not in opsi:
-                opsi[random.randint(0, 3)] = soal["Golongan"]
-            random.shuffle(opsi)
-            st.session_state["opsi_kuis"].append(opsi)
-
-    soal_kuis = st.session_state["soal_kuis"]
-    opsi_kuis = st.session_state["opsi_kuis"]
-
-    st.markdown("Jawab semua soal terlebih dahulu, lalu klik **Submit Jawaban**.")
-
-    jawaban_pengguna = {}
-    for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"### Soal {i}:")
-        st.write(f"🔍 **{soal['Nama Uji']}** → *{soal['Hasil Positif']}*")
-        opsi = opsi_kuis[i - 1]
-        jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
-        jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
+    jawaban = {}
+    for i, soal in enumerate(st.session_state.soal, start=1):
+        st.markdown(f"### Soal {i}")
+        st.write(f"{soal['Nama Uji']} → {soal['Hasil Positif']}")
+        jawaban_soal = st.radio("Pilih Golongan:", st.session_state.opsi[i-1], key=f"j{i}")
+        jawaban[f"soal{i}"] = {"jawaban": jawaban_soal, "benar": soal["Golongan"]}
 
     if st.button("📤 Submit Jawaban"):
-        benar = sum(1 for k in jawaban_pengguna if jawaban_pengguna[k]["jawaban"] == jawaban_pengguna[k]["benar"])
-        skor = (benar / jumlah_soal) * 100
-
-        st.success(f"✅ Kamu menjawab {benar} dari {jumlah_soal} soal dengan benar.")
-        st.info(f"🎯 Skor akhir: {skor:.2f}%")
-
-        salah = [(k, v["jawaban"], v["benar"]) for k, v in jawaban_pengguna.items() if v["jawaban"] != v["benar"]]
+        benar = sum(1 for v in jawaban.values() if v["jawaban"] == v["benar"])
+        skor = benar / jumlah * 100
+        st.success(f"Kamu menjawab {benar}/{jumlah} benar")
+        st.info(f"Skor akhir: {skor:.2f}%")
+        salah = [(k,v["jawaban"],v["benar"]) for k,v in jawaban.items() if v["jawaban"]!=v["benar"]]
         if salah:
-            st.warning("❌ Jawaban yang salah:")
-            for s in salah:
-                st.markdown(f"- **{s[0]}**: Jawabanmu **{s[1]}**, seharusnya **{s[2]}**")
-
+            st.warning("Jawaban salah:")
+            for k,jw,benar in salah:
+                st.write(f"- {k}: kamu pilih **{jw}**, seharusnya **{benar}**")
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
         st.info(random.choice(fakta_menarik))
 
-# ========== FOOTER ==========
+# ===== FOOTER =====
 st.markdown("---")
 st.caption("© 2025 | Uji Senyawa Kimia Interaktif by Streamlit 🎓")
