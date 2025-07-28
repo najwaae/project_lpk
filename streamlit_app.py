@@ -165,10 +165,24 @@ with tab1:
 with tab2:
     st.title("📘 Pengertian Golongan Senyawa Kimia")
     sel = st.selectbox("Pilih Golongan Senyawa", [x["Golongan"] for x in pengertian_senyawa])
+
+    # Tampilkan Pengertian
     for item in pengertian_senyawa:
         if item["Golongan"] == sel:
-            st.info(item["Golongan"])
+            st.subheader(f"📖 {item['Golongan']}")
             st.write(item["Pengertian"])
+
+            # Cari properti senyawa yang cocok
+            match = next((p for p in properti_senyawa if sel.lower() in p["nama_jenis"].lower()), None)
+            if match:
+                st.markdown("### ⚗️ Properti Fisik:")
+                st.write(f"**Kelarutan:** {match['kelarutan']}")
+                st.write(f"**Kebasaan:** {match['kebasaan']}")
+                st.write(f"**Titik Didih:** {match['titik_didih']} °C" if isinstance(match["titik_didih"], (int, float)) else f"**Titik Didih:** {match['titik_didih']}")
+            else:
+                st.info("Properti fisik tidak tersedia untuk golongan ini.")
+            break
+
     if st.checkbox("Tampilkan Semua Pengertian"):
         st.dataframe(pd.DataFrame(pengertian_senyawa))
 
