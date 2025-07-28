@@ -198,41 +198,51 @@ with tab3:
             if "Penjelasan" in uji:
                 st.markdown(f"**Penjelasan:** {uji['Penjelasan']}")
 
-# ===== Tab 4 =====
+# ========== TAB 4: QUIZ ==========
 with tab4:
     st.title("🧠 Quiz Golongan Senyawa Kimia")
     semua_uji = []
-    for gol, daftar in senyawa_data.items():
-        for soal in daftar:
-            semua_uji.append({**soal, "Golongan": gol})
-    jumlah = min(10, len(semua_uji))
-    if "soal" not in st.session_state:
-        st.session_state.soal = random.sample(semua_uji, jumlah)
-        st.session_state.opsi = [
-            random.sample(list(senyawa_data.keys()), 4) for _ in range(jumlah)
-        ]
-        for idx, soal in enumerate(st.session_state.soal):
-            if soal["Golongan"] not in st.session_state.opsi[idx]:
-                st.session_state.opsi[idx][random.randint(0,3)] = soal["Golongan"]
-            random.shuffle(st.session_state.opsi[idx])
+    for golongan, daftar_uji in senyawa_data.items():
+        for uji in daftar_uji:
+            semua_uji.append({**uji, "Golongan": golongan})
 
-    jawaban = {}
-    for i, soal in enumerate(st.session_state.soal, start=1):
-        st.markdown(f"### Soal {i}")
-        st.write(f"{soal['Nama Uji']} → {soal['Hasil Positif']}")
-        jawaban_soal = st.radio("Pilih Golongan:", st.session_state.opsi[i-1], key=f"j{i}")
-        jawaban[f"soal{i}"] = {"jawaban": jawaban_soal, "benar": soal["Golongan"]}
+    jumlah_soal = min(15, len(semua_uji))
+
+    if "soal_kuis" not in st.session_state:
+        st.session_state["soal_kuis"] = random.sample(semua_uji, k=jumlah_soal)
+        st.session_state["opsi_kuis"] = []
+        for soal in st.session_state["soal_kuis"]:
+            opsi = random.sample(list(senyawa_data.keys()), 4)
+            if soal["Golongan"] not in opsi:
+                opsi[random.randint(0, 3)] = soal["Golongan"]
+            random.shuffle(opsi)
+            st.session_state["opsi_kuis"].append(opsi)
+
+    soal_kuis = st.session_state["soal_kuis"]
+    opsi_kuis = st.session_state["opsi_kuis"]
+
+    st.markdown("Jawab semua soal terlebih dahulu, lalu klik Submit Jawaban.")
+
+    jawaban_pengguna = {}
+    for i, soal in enumerate(soal_kuis, 1):
+        st.markdown(f"Soal {i}: {soal['Nama Uji']} → {soal['Hasil Positif']}")
+        opsi = opsi_kuis[i - 1]
+        jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
+        jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
 
     if st.button("📤 Submit Jawaban"):
-        benar = sum(1 for v in jawaban.values() if v["jawaban"] == v["benar"])
-        skor = benar / jumlah * 100
-        st.success(f"Kamu menjawab {benar}/{jumlah} benar")
-        st.info(f"Skor akhir: {skor:.2f}%")
-        salah = [(k,v["jawaban"],v["benar"]) for k,v in jawaban.items() if v["jawaban"]!=v["benar"]]
+        benar = sum(1 for k in jawaban_pengguna if jawaban_pengguna[k]["jawaban"] == jawaban_pengguna[k]["benar"])
+        skor = (benar / jumlah_soal) * 100
+
+        st.success(f"✅ Kamu menjawab {benar} dari {jumlah_soal} soal dengan benar.")
+        st.info(f"🎯 Skor akhir: {skor:.2f}%")
+
+        salah = [(k, v["jawaban"], v["benar"]) for k, v in jawaban_pengguna.items() if v["jawaban"] != v["benar"]]
         if salah:
-            st.warning("Jawaban salah:")
-            for k,jw,benar in salah:
-                st.write(f"- {k}: kamu pilih **{jw}**, seharusnya **{benar}**")
+            st.warning("❌ Jawaban yang salah:")
+            for s in salah:
+                st.markdown(f"- {s[0]}: Jawabanmu {s[1]}, seharusnya **{s[2]}")
+
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
         st.info(random.choice(fakta_menarik))
