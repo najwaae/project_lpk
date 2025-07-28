@@ -30,6 +30,8 @@ pengertian_senyawa = [
     {"Golongan": "Amina", "Pengertian": "Senyawa yang mengandung atom nitrogen dengan gugus alkil/aril."},
     {"Golongan": "Protein", "Pengertian": "Polimer asam amino dengan ikatan peptida. Fungsi: enzim, transport, struktural, dsb."},
     {"Golongan": "Lemak & Minyak", "Pengertian": "Lemak: padat pada suhu ruang (dari hewan). Minyak: cair pada suhu ruang (dari tumbuhan). Cadangan energi."},
+]
+properti_senyawa = [
     {"nama_jenis": "Hidrokarbon (contoh: heksana)", "kelarutan": "Tidak larut dalam air, larut dalam pelarut non-polar", "kebasaan": "Netral (pH ~7)", "titik_didih": 68.7},
     {"nama_jenis": "Alkohol Primer (contoh: etanol)", "kelarutan": "Larut dalam air dan etanol", "kebasaan": "Netral (pH ~7)", "titik_didih": 78.4},
     {"nama_jenis": "Alkohol Sekunder (contoh: isopropanol)", "kelarutan": "Larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 82.6},
