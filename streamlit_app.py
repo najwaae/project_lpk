@@ -2,6 +2,9 @@ import streamlit as st
 import random
 import pandas as pd
 
+# ========== SETUP HALAMAN ==========
+st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
+
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
     {
@@ -27,9 +30,6 @@ pengertian_senyawa = [
     {"Golongan": "Amina", "Pengertian": "Senyawa yang mengandung atom nitrogen dengan gugus alkil/aril."},
     {"Golongan": "Protein", "Pengertian": "Polimer asam amino dengan ikatan peptida. Fungsi: enzim, transport, struktural, dsb."},
     {"Golongan": "Lemak & Minyak", "Pengertian": "Lemak: padat pada suhu ruang (dari hewan). Minyak: cair pada suhu ruang (dari tumbuhan). Cadangan energi."},
-]
-
-data_senyawa = [
     {"nama_jenis": "Hidrokarbon (contoh: heksana)", "kelarutan": "Tidak larut dalam air, larut dalam pelarut non-polar", "kebasaan": "Netral (pH ~7)", "titik_didih": 68.7},
     {"nama_jenis": "Alkohol Primer (contoh: etanol)", "kelarutan": "Larut dalam air dan etanol", "kebasaan": "Netral (pH ~7)", "titik_didih": 78.4},
     {"nama_jenis": "Alkohol Sekunder (contoh: isopropanol)", "kelarutan": "Larut dalam air", "kebasaan": "Netral (pH ~7)", "titik_didih": 82.6},
@@ -163,36 +163,26 @@ senyawa_data = {
     ],
 }
 
-# ========== KONFIGURASI HALAMAN ==========
-st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
-
-# ========== KONFIGURASI HALAMAN ==========
-st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
-
-# ========== TAB-TAB ==========
-tab1, tab2, tab3, tab4= st.tabs([
+# ========== TABS ==========
+tab1, tab2, tab3, tab4 = st.tabs([
     "📙 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "🧠 Quiz Golongan Senyawa"
 ])
-    
+
 # ========== TAB 1: ORGOVERSE ==========
 with tab1:
     st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
     st.image("orgoverse_logo.png", width=200)
-    st.markdown(
-        """
+    st.markdown("""
         <h1 style='margin-top: 20px;'>Selamat Datang di <span style="color:#6c63ff;">OrgoVerse!</span></h1>
-        <p style='font-size: 18px;'>
-            <strong>Platform interaktif</strong> untuk memahami <em>golongan senyawa kimia</em> secara menyenangkan dan mudah diakses.
-        </p>
+        <p style='font-size: 18px;'><strong>Platform interaktif</strong> untuk memahami <em>golongan senyawa kimia</em> secara menyenangkan dan mudah diakses.</p>
         <p style='font-size: 16px;'>🔍 Jelajahi pengertian senyawa, uji-uji kimia, data kelarutan, dan tantang dirimu lewat kuis interaktif!</p>
         <hr style='margin-top: 40px;'>
-        """,
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
+
     st.header("Apa Itu OrgoVerse?")
     st.write(pengertian_orgoverse[0]["deskripsi"])
     st.subheader("👩‍🔬 Kelompok 04:")
@@ -202,12 +192,11 @@ with tab1:
         "MARSYA MADINA MUNIR (2460413)",
         "NAJWA ANANDA EFENDI (2460457)",
         "SHELLA RIVANA AULIYA (2460516)"
-
     ]
     for nama in anggota:
         st.write(f"- {nama}")
 
-# ========== TAB 2: PENGERTIAN GOLONGAN SENYAWA ==========
+# ========== TAB 2: PENGERTIAN SENYAWA ==========
 with tab2:
     st.title("📘 Pengertian Golongan Senyawa Kimia")
     golongan_list = [x["Golongan"] for x in pengertian_senyawa]
@@ -230,18 +219,21 @@ with tab3:
 
     for uji in senyawa_data[selected]:
         with st.expander(uji["Nama Uji"]):
-            st.markdown(f"Hasil Positif: {uji['Hasil Positif']}")
-            st.markdown(f"Keterangan: {uji['Keterangan']}")
+            st.markdown(f"**Hasil Positif:** {uji['Hasil Positif']}")
+            st.markdown(f"**Keterangan:** {uji['Keterangan']}")
+            if "Penjelasan" in uji:
+                st.markdown(f"**Penjelasan:** {uji['Penjelasan']}")
 
 # ========== TAB 4: QUIZ ==========
-with tab5:
+with tab4:
     st.title("🧠 Quiz Golongan Senyawa Kimia")
+
     semua_uji = []
     for golongan, daftar_uji in senyawa_data.items():
         for uji in daftar_uji:
             semua_uji.append({**uji, "Golongan": golongan})
 
-    jumlah_soal = min(15, len(semua_uji))
+    jumlah_soal = min(10, len(semua_uji))  # Bisa diubah sesuai keinginan
 
     if "soal_kuis" not in st.session_state:
         st.session_state["soal_kuis"] = random.sample(semua_uji, k=jumlah_soal)
@@ -256,11 +248,12 @@ with tab5:
     soal_kuis = st.session_state["soal_kuis"]
     opsi_kuis = st.session_state["opsi_kuis"]
 
-    st.markdown("Jawab semua soal terlebih dahulu, lalu klik Submit Jawaban.")
+    st.markdown("Jawab semua soal terlebih dahulu, lalu klik **Submit Jawaban**.")
 
     jawaban_pengguna = {}
     for i, soal in enumerate(soal_kuis, 1):
-        st.markdown(f"Soal {i}: {soal['Nama Uji']} → {soal['Hasil Positif']}")
+        st.markdown(f"### Soal {i}:")
+        st.write(f"🔍 **{soal['Nama Uji']}** → *{soal['Hasil Positif']}*")
         opsi = opsi_kuis[i - 1]
         jawaban = st.radio("Pilih Golongan:", opsi, key=f"kuis_{i}")
         jawaban_pengguna[f"soal_{i}"] = {"jawaban": jawaban, "benar": soal["Golongan"]}
@@ -276,7 +269,7 @@ with tab5:
         if salah:
             st.warning("❌ Jawaban yang salah:")
             for s in salah:
-                st.markdown(f"- {s[0]}: Jawabanmu {s[1]}, seharusnya **{s[2]}")
+                st.markdown(f"- **{s[0]}**: Jawabanmu **{s[1]}**, seharusnya **{s[2]}**")
 
         st.markdown("---")
         st.subheader("💡 Fakta Menarik Kimia")
