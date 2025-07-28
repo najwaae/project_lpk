@@ -2,9 +2,6 @@ import streamlit as st
 import random
 import pandas as pd
 
-# ========== SETUP HALAMAN ==========
-st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
-
 # ========== DATA PENGERTIAN ORGOVERSE ==========
 pengertian_orgoverse = [
     {
@@ -127,9 +124,12 @@ senyawa_data = {
     ],
 }
 
+# ========== SETUP HALAMAN ==========
+st.set_page_config(page_title="Uji Senyawa Kimia Lengkap", layout="wide")
+
 # ========== TABS ==========
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📙 Tentang OrgoVerse",
+    "🌍 Tentang OrgoVerse",
     "📘 Pengertian Senyawa",
     "🔬 Uji Senyawa",
     "🧠 Quiz Golongan Senyawa"
