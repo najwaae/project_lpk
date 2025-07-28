@@ -60,106 +60,70 @@ fakta_menarik = [
 # ========== DATA UJI SENYAWA ==========
 senyawa_data = {
     "Hidrokarbon": [
-        {"Nama Uji": "Uji Pembakaran", "Penjelasan": "Uji ini digunakan untuk mengidentifikasi jenis serat atau material berdasarkan sifat pembakaran, bau yang dihasilkan, warna asap, dan sisa pembakaran. Sering digunakan dalam penentuan golongan serat tekstil atau material organik.
-", "Hasil Positif": "Nyala kuning berasap", "Keterangan": "Aromatik"},
-        {"Nama Uji": "Uji Bromin", "Penjelasan": "Uji ini untuk mendeteksi adanya ikatan rangkap dua atau tiga (ketidakjenuhan) pada senyawa organik seperti alkena, alkuna, fenol, dan anilina.
-", "Hasil Positif": "Warna hilang", "Keterangan": "Adisi ikatan rangkap"},
-        {"Nama Uji": "Uji Baeyer", "Penjelasan": "Menggunakan larutan kalium permanganat (KMnO₄) untuk mengidentifikasi senyawa yang memiliki ikatan rangkap, seperti alkena.
-", "Hasil Positif": "Ungu hilang jadi coklat", "Keterangan": "Ikatan rangkap"},
+        {"Nama Uji": "Uji Pembakaran", "Penjelasan": "Uji ini digunakan untuk mengidentifikasi jenis serat atau material berdasarkan sifat pembakaran, bau yang dihasilkan, warna asap, dan sisa pembakaran. Sering digunakan dalam penentuan golongan serat tekstil atau material organik.", "Hasil Positif": "Nyala kuning berasap", "Keterangan": "Aromatik"},
+        {"Nama Uji": "Uji Bromin", "Penjelasan": "Uji ini untuk mendeteksi adanya ikatan rangkap dua atau tiga (ketidakjenuhan) pada senyawa organik seperti alkena, alkuna, fenol, dan anilina.", "Hasil Positif": "Warna hilang", "Keterangan": "Adisi ikatan rangkap"},
+        {"Nama Uji": "Uji Baeyer", "Penjelasan": "Menggunakan larutan kalium permanganat (KMnO₄) untuk mengidentifikasi senyawa yang memiliki ikatan rangkap, seperti alkena.", "Hasil Positif": "Ungu hilang jadi coklat", "Keterangan": "Ikatan rangkap"},
     ],
     "Alkohol Primer": [
-        {"Nama Uji": "Uji Lucas", "Penjelasan": "Uji kualitatif untuk membedakan alkohol primer, sekunder, dan tersier berdasarkan kecepatan reaksi dengan reagen Lucas (campuran ZnCl₂ dan HCl pekat). Alkohol tersier bereaksi cepat (seketika keruh), sekunder lebih lambat, dan primer biasanya tidak menunjukkan perubahan
-", "Hasil Positif": "Tidak keruh / lambat", "Keterangan": "Reaksi lambat"},
-        {"Nama Uji": "Uji Kromik (Jones)", "Penjelasan": "Uji untuk mendeteksi alkohol primer dan sekunder atau aldehida menggunakan reagen Jones (larutan kromium trioxide dalam asam sulfat).
-", "Hasil Positif": "Oranye → hijau", "Keterangan": "Oksidasi → asam karboksilat"},
-        {"Nama Uji": "Uji Natrium", "Penjelasan": "untuk mendeteksi keberadaan ion natrium dalam suatu sampel.
-", "Hasil Positif": "Gas H₂", "Keterangan": "Reaksi alkohol"},
+        {"Nama Uji": "Uji Lucas", "Penjelasan": "Uji kualitatif untuk membedakan alkohol primer, sekunder, dan tersier berdasarkan kecepatan reaksi dengan reagen Lucas (campuran ZnCl₂ dan HCl pekat). Alkohol tersier bereaksi cepat (seketika keruh), sekunder lebih lambat, dan primer biasanya tidak menunjukkan perubahan", "Hasil Positif": "Tidak keruh / lambat", "Keterangan": "Reaksi lambat"},
+        {"Nama Uji": "Uji Kromik (Jones)", "Penjelasan": "Uji untuk mendeteksi alkohol primer dan sekunder atau aldehida menggunakan reagen Jones (larutan kromium trioxide dalam asam sulfat).", "Hasil Positif": "Oranye → hijau", "Keterangan": "Oksidasi → asam karboksilat"},
+        {"Nama Uji": "Uji Natrium", "Penjelasan": "untuk mendeteksi keberadaan ion natrium dalam suatu sampel.", "Hasil Positif": "Gas H₂", "Keterangan": "Reaksi alkohol"},
     ],
     "Alkohol Sekunder": [
-        {"Nama Uji": "Uji Lucas", "Penjelasan": "Uji kualitatif untuk membedakan alkohol primer, sekunder, dan tersier berdasarkan kecepatan reaksi dengan reagen Lucas (campuran ZnCl₂ dan HCl pekat). Alkohol tersier bereaksi cepat (seketika keruh), sekunder lebih lambat, dan primer biasanya tidak menunjukkan perubahan
-", "Hasil Positif": "Keruh sedang (~5 menit)", "Keterangan": "Reaksi sedang"},
-        {"Nama Uji": "Uji Kromik", "Penjelasan": "Uji untuk mendeteksi alkohol primer dan sekunder atau aldehida menggunakan reagen Jones (larutan kromium trioxide dalam asam sulfat).
-", "Hasil Positif": "Oranye → hijau", "Keterangan": "Oksidasi → keton"},
-        {"Nama Uji": "Uji Natrium", "Penjelasan": "untuk mendeteksi keberadaan ion natrium dalam suatu sampel.
-", "Hasil Positif": "Gas H₂", "Keterangan": "Reaksi alkohol"},
+        {"Nama Uji": "Uji Lucas", "Penjelasan": "Uji kualitatif untuk membedakan alkohol primer, sekunder, dan tersier berdasarkan kecepatan reaksi dengan reagen Lucas (campuran ZnCl₂ dan HCl pekat). Alkohol tersier bereaksi cepat (seketika keruh), sekunder lebih lambat, dan primer biasanya tidak menunjukkan perubahan", "Hasil Positif": "Keruh sedang (~5 menit)", "Keterangan": "Reaksi sedang"},
+        {"Nama Uji": "Uji Kromik", "Penjelasan": "Uji untuk mendeteksi alkohol primer dan sekunder atau aldehida menggunakan reagen Jones (larutan kromium trioxide dalam asam sulfat).", "Hasil Positif": "Oranye → hijau", "Keterangan": "Oksidasi → keton"},
+        {"Nama Uji": "Uji Natrium", "Penjelasan": "untuk mendeteksi keberadaan ion natrium dalam suatu sampel.", "Hasil Positif": "Gas H₂", "Keterangan": "Reaksi alkohol"},
     ],
     "Alkohol Tersier": [
-        {"Nama Uji": "Uji Lucas", "Penjelasan": "Uji kualitatif untuk membedakan alkohol primer, sekunder, dan tersier berdasarkan kecepatan reaksi dengan reagen Lucas (campuran ZnCl₂ dan HCl pekat). Alkohol tersier bereaksi cepat (seketika keruh), sekunder lebih lambat, dan primer biasanya tidak menunjukkan perubahan
-", "Hasil Positif": "Cepat keruh", "Keterangan": "Cepat bereaksi"},
-        {"Nama Uji": "Uji Kromik", "Penjelasan": "Uji untuk mendeteksi alkohol primer dan sekunder atau aldehida menggunakan reagen Jones (larutan kromium trioxide dalam asam sulfat).
-", "Hasil Positif": "Negatif", "Keterangan": "Tidak teroksidasi"},
-        {"Nama Uji": "Uji Natrium", "Penjelasan": "untuk mendeteksi keberadaan ion natrium dalam suatu sampel.
-", "Hasil Positif": "Gas H₂", "Keterangan": "Reaksi alkohol"},
+        {"Nama Uji": "Uji Lucas", "Penjelasan": "Uji kualitatif untuk membedakan alkohol primer, sekunder, dan tersier berdasarkan kecepatan reaksi dengan reagen Lucas (campuran ZnCl₂ dan HCl pekat). Alkohol tersier bereaksi cepat (seketika keruh), sekunder lebih lambat, dan primer biasanya tidak menunjukkan perubahan", "Hasil Positif": "Cepat keruh", "Keterangan": "Cepat bereaksi"},
+        {"Nama Uji": "Uji Kromik", "Penjelasan": "Uji untuk mendeteksi alkohol primer dan sekunder atau aldehida menggunakan reagen Jones (larutan kromium trioxide dalam asam sulfat).", "Hasil Positif": "Negatif", "Keterangan": "Tidak teroksidasi"},
+        {"Nama Uji": "Uji Natrium", "Penjelasan": "untuk mendeteksi keberadaan ion natrium dalam suatu sampel.", "Hasil Positif": "Gas H₂", "Keterangan": "Reaksi alkohol"},
     ],
     "Fenol": [
         {"Nama Uji": "Uji Ferri Klorida", "Penjelasan": "Uji untuk mendeteksi fenol.", "Hasil Positif": "Ungu/biru", "Keterangan": "Kompleks fenolat"},
         {"Nama Uji": "Uji Bromin", "Penjelasan": "Uji ini untuk mendeteksi adanya ikatan rangkap dua atau tiga (ketidakjenuhan) pada senyawa organik seperti alkena, alkuna, fenol, dan anilina.", "Hasil Positif": "Endapan putih tribromofenol", "Keterangan": "Substitusi elektrofilik"},
     ],
     "Aldehida": [
-        {"Nama Uji": "Uji Tollens", "Penjelasan": "Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.
-", "Hasil Positif": "Cermin perak", "Keterangan": "Aldehida teroksidasi"},
-        {"Nama Uji": "Uji Fehling", "Penjelasan": "Uji untuk mendeteksi gula pereduksi atau aldehida
-", "Hasil Positif": "Endapan merah bata", "Keterangan": "Aldehida positif"},
-        {"Nama Uji": "Uji DNPH", "Penjelasan": " Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.
-", "Hasil Positif": "Endapan kuning/jingga", "Keterangan": "Gugus karbonil"},
+        {"Nama Uji": "Uji Tollens", "Penjelasan": "Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.", "Hasil Positif": "Cermin perak", "Keterangan": "Aldehida teroksidasi"},
+        {"Nama Uji": "Uji Fehling", "Penjelasan": "Uji untuk mendeteksi gula pereduksi atau aldehida", "Hasil Positif": "Endapan merah bata", "Keterangan": "Aldehida positif"},
+        {"Nama Uji": "Uji DNPH", "Penjelasan": " Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.", "Hasil Positif": "Endapan kuning/jingga", "Keterangan": "Gugus karbonil"},
     ],
     "Keton": [
-        {"Nama Uji": "Uji Tollens", "Penjelasan": "Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.
-", "Hasil Positif": "Negatif", "Keterangan": "Tidak teroksidasi"},
-        {"Nama Uji": "Uji Fehling", "Penjelasan": "Uji untuk mendeteksi gula pereduksi atau aldehida
-", "Hasil Positif": "Negatif", "Keterangan": "Tidak bereaksi"},
-        {"Nama Uji": "Uji DNPH", "Penjelasan": " Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.
-", "Hasil Positif": "Endapan kuning/jingga", "Keterangan": "Gugus karbonil"},
+        {"Nama Uji": "Uji Tollens", "Penjelasan": "Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.", "Hasil Positif": "Negatif", "Keterangan": "Tidak teroksidasi"},
+        {"Nama Uji": "Uji Fehling", "Penjelasan": "Uji untuk mendeteksi gula pereduksi atau aldehida", "Hasil Positif": "Negatif", "Keterangan": "Tidak bereaksi"},
+        {"Nama Uji": "Uji DNPH", "Penjelasan": " Uji ini digunakan untuk mendeteksi gugus karbonil pada aldehida dan keton.", "Hasil Positif": "Endapan kuning/jingga", "Keterangan": "Gugus karbonil"},
     ],
     "Karbohidrat": [
-        {"Nama Uji": "Uji Molisch", "Penjelasan": "Merupakan uji umum karbohidrat berdasarkan reaksi dehidrasi membentuk furfural yang berinteraksi dengan α-naftol menghasilkan cincin ungu di antara dua lapisan reagen.
-", "Hasil Positif": "Cincin ungu", "Keterangan": "Dehidrasi furfural"},
-        {"Nama Uji": "Uji Benedict", "Penjelasan": "untuk deteksi gula pereduksi. Larutan biru dari tembaga(II) sulfat akan berubah warna hingga endapan merah bata menunjukkan keberadaan gula pereduksi.
-", "Endapan merah bata", "Keterangan": "Gula pereduksi"},
-        {"Nama Uji": "Uji Barfoed", "Penjelasan": "untuk membedakan monosakarida dari disakarida. Monosakarida akan mereduksi reagen Barfoed membentuk endapan merah bata dalam waktu singkat.
-", "Hasil Positif": "Endapan merah bata cepat", "Keterangan": "Monosakarida positif"},
-        {"Nama Uji": "Uji Seliwanoff", "Penjelasan": "untuk membedakan antara aldosa dan ketosa. Ketosa akan memberi warna merah dengan reagen Seliwanoff, sedangkan aldosa menghasilkan warna lambat atau tidak berwarna.
-", "Hasil Positif": "Warna merah cepat", "Keterangan": "Ketosa positif"},
+        {"Nama Uji": "Uji Molisch", "Penjelasan": "Merupakan uji umum karbohidrat berdasarkan reaksi dehidrasi membentuk furfural yang berinteraksi dengan α-naftol menghasilkan cincin ungu di antara dua lapisan reagen.", "Hasil Positif": "Cincin ungu", "Keterangan": "Dehidrasi furfural"},
+        {"Nama Uji": "Uji Benedict", "Penjelasan": "untuk deteksi gula pereduksi. Larutan biru dari tembaga(II) sulfat akan berubah warna hingga endapan merah bata menunjukkan keberadaan gula pereduksi.", "Endapan merah bata", "Keterangan": "Gula pereduksi"},
+        {"Nama Uji": "Uji Barfoed", "Penjelasan": "untuk membedakan monosakarida dari disakarida. Monosakarida akan mereduksi reagen Barfoed membentuk endapan merah bata dalam waktu singkat.", "Hasil Positif": "Endapan merah bata cepat", "Keterangan": "Monosakarida positif"},
+        {"Nama Uji": "Uji Seliwanoff", "Penjelasan": "untuk membedakan antara aldosa dan ketosa. Ketosa akan memberi warna merah dengan reagen Seliwanoff, sedangkan aldosa menghasilkan warna lambat atau tidak berwarna.", "Hasil Positif": "Warna merah cepat", "Keterangan": "Ketosa positif"},
     ],
     "Asam Karboksilat": [
-        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.
-", "Hasil Positif": "Lakmus merah", "Keterangan": "Bersifat asam"},
-        {"Nama Uji": "Uji NaHCO₃", "Penjelasan": "Untuk identifikasi senyawa asam karboksilat, di mana terbentuk gelembung CO₂ sebagai hasil reaksi positif.
-", "Hasil Positif": "Gelembung CO₂", "Keterangan": "Reaksi dengan basa lemah"},
+        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.", "Hasil Positif": "Lakmus merah", "Keterangan": "Bersifat asam"},
+        {"Nama Uji": "Uji NaHCO₃", "Penjelasan": "Untuk identifikasi senyawa asam karboksilat, di mana terbentuk gelembung CO₂ sebagai hasil reaksi positif.", "Hasil Positif": "Gelembung CO₂", "Keterangan": "Reaksi dengan basa lemah"},
     ],
     "Amina Primer": [
-        {"Nama Uji": "Uji Hinsberg", "Penjelasan": "Uji kualitatif untuk membedakan amina primer, sekunder, dan tersier memakai reagen Hinsberg (benzensulfonil klorida) berdasarkan kelarutan produk reaksi dalam basa.
-", "Hasil Positif": "Larut setelah basa", "Keterangan": "Gugus -NH₂"},
-        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.
-", "Hasil Positif": "Lakmus biru", "Keterangan": "Basa"},
+        {"Nama Uji": "Uji Hinsberg", "Penjelasan": "Uji kualitatif untuk membedakan amina primer, sekunder, dan tersier memakai reagen Hinsberg (benzensulfonil klorida) berdasarkan kelarutan produk reaksi dalam basa.", "Hasil Positif": "Larut setelah basa", "Keterangan": "Gugus -NH₂"},
+        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.", "Hasil Positif": "Lakmus biru", "Keterangan": "Basa"},
     ],
     "Amina Sekunder": [
-        {"Nama Uji": "Uji Hinsberg", "Penjelasan": "Uji kualitatif untuk membedakan amina primer, sekunder, dan tersier memakai reagen Hinsberg (benzensulfonil klorida) berdasarkan kelarutan produk reaksi dalam basa.
-","Hasil Positif": "Tidak larut setelah basa", "Keterangan": "Tidak membentuk garam"},
-        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.
-", "Hasil Positif": "Lakmus biru", "Keterangan": "Basa"},
+        {"Nama Uji": "Uji Hinsberg", "Penjelasan": "Uji kualitatif untuk membedakan amina primer, sekunder, dan tersier memakai reagen Hinsberg (benzensulfonil klorida) berdasarkan kelarutan produk reaksi dalam basa.","Hasil Positif": "Tidak larut setelah basa", "Keterangan": "Tidak membentuk garam"},
+        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.", "Hasil Positif": "Lakmus biru", "Keterangan": "Basa"},
     ],
     "Amina Tersier": [
-        {"Nama Uji": "Uji Hinsberg", "Penjelasan": "Uji kualitatif untuk membedakan amina primer, sekunder, dan tersier memakai reagen Hinsberg (benzensulfonil klorida) berdasarkan kelarutan produk reaksi dalam basa.
-","Hasil Positif": "Tidak bereaksi", "Keterangan": "Tidak membentuk derivat"},
-        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.
-", "Hasil Positif": "Lakmus biru", "Keterangan": "Basa"},
+        {"Nama Uji": "Uji Hinsberg", "Penjelasan": "Uji kualitatif untuk membedakan amina primer, sekunder, dan tersier memakai reagen Hinsberg (benzensulfonil klorida) berdasarkan kelarutan produk reaksi dalam basa.","Hasil Positif": "Tidak bereaksi", "Keterangan": "Tidak membentuk derivat"},
+        {"Nama Uji": "Uji Lakmus", "Penjelasan": "Menggunakan kertas lakmus untuk mengetahui sifat asam/basa suatu larutan.", "Hasil Positif": "Lakmus biru", "Keterangan": "Basa"},
     ],
     "Protein": [
-        {"Nama Uji": "Uji Biuret", "Penjelasan": "Uji protein yang didasarkan pada reaksi senyawa peptida dengan ion tembaga(II), menghasilkan warna ungu sebagai tanda adanya ikatan peptida.
-", "Hasil Positif": "Ungu", "Keterangan": "Ikatan peptida"},
-        {"Nama Uji": "Uji Xantoprotein", "Penjelasan": "Uji untuk mengenali asam amino aromatik (fenilalanin, tirosin, triptofan) berdasarkan reaksi nitrasi menghasilkan warna kuning yang berubah menjadi jingga dengan alkali.
-", "Hasil Positif": "Kuning", "Keterangan": "Gugus aromatik"},
-        {"Nama Uji": "Uji Ninhidrin", "Penjelasan": "Uji untuk mendeteksi asam amino bebas dan peptida; bereaksi menghasilkan warna ungu atau biru.
-", "Hasil Positif": "Warna ungu/biru", "Keterangan": "Asam amino bebas"},
+        {"Nama Uji": "Uji Biuret", "Penjelasan": "Uji protein yang didasarkan pada reaksi senyawa peptida dengan ion tembaga(II), menghasilkan warna ungu sebagai tanda adanya ikatan peptida.", "Hasil Positif": "Ungu", "Keterangan": "Ikatan peptida"},
+        {"Nama Uji": "Uji Xantoprotein", "Penjelasan": "Uji untuk mengenali asam amino aromatik (fenilalanin, tirosin, triptofan) berdasarkan reaksi nitrasi menghasilkan warna kuning yang berubah menjadi jingga dengan alkali.", "Hasil Positif": "Kuning", "Keterangan": "Gugus aromatik"},
+        {"Nama Uji": "Uji Ninhidrin", "Penjelasan": "Uji untuk mendeteksi asam amino bebas dan peptida; bereaksi menghasilkan warna ungu atau biru.", "Hasil Positif": "Warna ungu/biru", "Keterangan": "Asam amino bebas"},
     ],
     "Lemak & Minyak": [
-        {"Nama Uji": "Uji Kertas", "Penjelasan": "Biasanya digunakan untuk menguji keberadaan lemak; kertas diusap bahan, bila meninggalkan noda transparan, menandakan adanya lemak.
-", "Hasil Positif": "Noda transparan", "Keterangan": "Ciri lipid"},
-        {"Nama Uji": "Uji Baeyer", "Penjelasan": "Menggunakan larutan kalium permanganat (KMnO₄) untuk mengidentifikasi senyawa yang memiliki ikatan rangkap, seperti alkena.
-", "Hasil Positif": "Ungu hilang", "Keterangan": "Ikatan tak jenuh"},
-        {"Nama Uji": "Uji Saponifikasi", "Penjelasan": "Digunakan untuk mengamati proses hidrolisis ester (misal lemak) membentuk garam asam lemak (sabun) dan gliserol dalam suasana basa.
-", "Hasil Positif": "Sabun terbentuk", "Keterangan": "Hidrolisis trigliserida"},
+        {"Nama Uji": "Uji Kertas", "Penjelasan": "Biasanya digunakan untuk menguji keberadaan lemak; kertas diusap bahan, bila meninggalkan noda transparan, menandakan adanya lemak.", "Hasil Positif": "Noda transparan", "Keterangan": "Ciri lipid"},
+        {"Nama Uji": "Uji Baeyer", "Penjelasan": "Menggunakan larutan kalium permanganat (KMnO₄) untuk mengidentifikasi senyawa yang memiliki ikatan rangkap, seperti alkena.", "Hasil Positif": "Ungu hilang", "Keterangan": "Ikatan tak jenuh"},
+        {"Nama Uji": "Uji Saponifikasi", "Penjelasan": "Digunakan untuk mengamati proses hidrolisis ester (misal lemak) membentuk garam asam lemak (sabun) dan gliserol dalam suasana basa.", "Hasil Positif": "Sabun terbentuk", "Keterangan": "Hidrolisis trigliserida"},
     ],
 }
 
