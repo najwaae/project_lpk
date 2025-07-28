@@ -99,7 +99,7 @@ senyawa_data = {
     ],
     "Karbohidrat": [
         {"Nama Uji": "Uji Molisch", "Penjelasan": "Merupakan uji umum karbohidrat berdasarkan reaksi dehidrasi membentuk furfural yang berinteraksi dengan α-naftol menghasilkan cincin ungu di antara dua lapisan reagen.", "Hasil Positif": "Cincin ungu", "Keterangan": "Dehidrasi furfural"},
-        {"Nama Uji": "Uji Benedict", "Penjelasan": "untuk deteksi gula pereduksi. Larutan biru dari tembaga(II) sulfat akan berubah warna hingga endapan merah bata menunjukkan keberadaan gula pereduksi.", "Endapan merah bata", "Keterangan": "Gula pereduksi"},
+        {"Nama Uji": "Uji Benedict", "Penjelasan": "untuk deteksi gula pereduksi. Larutan biru dari tembaga(II) sulfat akan berubah warna hingga endapan merah bata menunjukkan keberadaan gula pereduksi.", "Hasil Positif": "Endapan merah bata", "Keterangan": "Gula pereduksi"},
         {"Nama Uji": "Uji Barfoed", "Penjelasan": "untuk membedakan monosakarida dari disakarida. Monosakarida akan mereduksi reagen Barfoed membentuk endapan merah bata dalam waktu singkat.", "Hasil Positif": "Endapan merah bata cepat", "Keterangan": "Monosakarida positif"},
         {"Nama Uji": "Uji Seliwanoff", "Penjelasan": "untuk membedakan antara aldosa dan ketosa. Ketosa akan memberi warna merah dengan reagen Seliwanoff, sedangkan aldosa menghasilkan warna lambat atau tidak berwarna.", "Hasil Positif": "Warna merah cepat", "Keterangan": "Ketosa positif"},
     ],
